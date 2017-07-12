@@ -1,0 +1,65 @@
+#include <Servo.h>
+#define NOTE_C4 262
+#define NOTE_D4 294
+#define NOTE_E4 330
+#define NOTE_G4 392
+
+int speakerPin = 8;
+// notes for melody
+int melody[] = {
+  NOTE_E4, NOTE_D4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_D4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_G4,
+  NOTE_E4, NOTE_D4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_D4, NOTE_E4, NOTE_D4, NOTE_C4
+};
+int noteDurations[] {
+  4,4,4,4,4,4,2,4,4,2,4,4,2,4,4,4,4,4,4,2,4,4,4,4,1
+};
+
+
+Servo servoLeft;
+Servo servoRight;
+
+void setup() {
+  // put your setup code here, to run once:
+  servoLeft.attach(13);
+  servoRight.attach(12);
+  pinMode(speakerPin, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+  
+
+
+void loop() {
+  digitalWrite(11, HIGH);   
+  delay(150);              
+  digitalWrite(11, LOW);
+  delay(150); 
+       
+  digitalWrite(12, HIGH);
+  delay(100);
+  digitalWrite(12, LOW);
+  delay(100);
+
+  digitalWrite(13, HIGH);
+  delay(50);
+  digitalWrite(13, LOW);
+  delay(50);
+  servoLeft.writeMicroseconds(2000); //left wheel, robot is going clockwise
+  servoRight.writeMicroseconds(1700);
+  
+
+   // put your main code here, to run repeatedly;
+ // put your main code here, to run repeatedly:
+  for (int thisNote = 0; thisNote < 25; thisNote++) {
+    // Calculate note duration, take one second and divide it by the note type
+    int noteDuration = 1000 / noteDurations[thisNote];
+    tone(speakerPin, melody[thisNote], noteDuration);
+
+    // pause between your notes, notes duration + 30% works
+    int pauseBetweenNotes = noteDuration * 1.30;
+    delay(pauseBetweenNotes);
+    noTone(speakerPin);
+      }
+}
