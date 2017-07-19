@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+
+<h1>Projects</h1>
+
+<p>Below are links to some of my recent projects I have done with the Girls Who Code program.</p>
+
+<a href="https://scratch.mit.edu/projects/166865428/">Paddle Ball</a>
+<a href="https://scratch.mit.edu/projects/166858885/">Scratch link</a>
+<a href="https://scratch.mit.edu/projects/166756014/#editor">Scratch link</a>
+  
+<p id="demo"><a href="https://scratch.mit.edu/projects/166865428/">Project 1 - Scratch</a></p>
+  
+<p id="demo"><a href="scratch.mit.edu/projects/166858885/">Project 2 - Robot Light Show</a></p>
+
+<p id="demo"><a href="https://scratch.mit.edu/projects/166756014/#editor">Project 3 - Django Girls Blog</a></p>
+
+</center>
+</body>
+</html>
